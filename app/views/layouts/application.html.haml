@@ -20,22 +20,32 @@
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     / Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons
     / CSS: implied media="all"
-    = stylesheet_link_tag "application"
+
+    = stylesheet_link_tag "blueprint/screen.css", :media => "screen, projection"
+    = stylesheet_link_tag "blueprint/print.css", :media => "print"
+    
+    - if use_mobile_browsing?
+      = stylesheet_link_tag "application_mobile"
+    - else
+      = stylesheet_link_tag "application_desktop"
+    
     = csrf_meta_tags
-    / More ideas for your <head> here: h5bp.com/docs/#head-Tips
+    / More ideas for your head here: h5bp.com/docs/#head-Tips
     /
       All JavaScript at the bottom, except for Modernizr and Respond.
       Modernizr enables HTML5 elements &amp; feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
       For optimal performance, use a custom Modernizr build: www.modernizr.com/download/
     = javascript_include_tag "modernizr"
   %body
-    = yield
+    .container.my_container
+      %header
+        = render partial: "shared/site_header"
+      #main.yui3-g
+        = yield
+      %footer.yui3-u-1
+        = render partial: "shared/site_footer"
+
     / ! end of #container
+    
     = javascript_include_tag "application"
-    / mathiasbynens.be/notes/async-analytics-snippet Change UA-XXXXX-X to be your site's ID
-    :javascript
-      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview'],['_trackPageLoadTime']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
-  
+    / = render partial: "shared/google_analytics"  
