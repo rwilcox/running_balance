@@ -17,9 +17,11 @@ group :assets do
 end
 
 gem 'haml'
+gem 'coffee-filter' #what's all this? <http://aledalgrande.posterous.com/52292198> - :coffeescript in your HAML!!! WD-rpw 08-11-2011
 gem 'jquery-rails'
 gem "devise"
-gem "omniauth"
+gem "omniauth", ">= 0.2.6"
+gem 'oa-openid', :require => 'omniauth/openid'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -31,6 +33,7 @@ group :test, :development do
   # To use debugger
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem "jasmine"
+  gem 'mongrel', '1.2.0.pre2'
 end
 
 group :test do
