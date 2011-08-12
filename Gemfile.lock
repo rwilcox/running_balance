@@ -117,6 +117,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    modernizr-rails (2.0.6)
     mongrel (1.2.0.pre2)
       daemons (~> 1.0.10)
       gem_plugin (~> 0.2.3)
@@ -279,6 +280,7 @@ DEPENDENCIES
   haml
   jasmine
   jquery-rails
+  modernizr-rails
   mongrel (= 1.2.0.pre2)
   oa-openid
   omniauth (>= 0.2.6)

@@ -18,7 +18,22 @@ end
 
 gem 'haml'
 gem 'coffee-filter' #what's all this? <http://aledalgrande.posterous.com/52292198> - :coffeescript in your HAML!!! WD-rpw 08-11-2011
+# JavasScript libs
 gem 'jquery-rails'
+gem 'modernizr-rails'
+
+# Stylesheet libs
+# gem 'blueprint-rails'
+
+# Ajax request CoffeeScript support
+# gem 'coffeebeans'
+
+# Heroku deployment requirements
+# group :production do
+#   gem 'therubyracer-heroku'
+#   gem 'pg'
+# end
+
 gem "devise"
 gem "omniauth", ">= 0.2.6"
 gem 'oa-openid', :require => 'omniauth/openid'
