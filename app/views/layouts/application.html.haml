@@ -24,6 +24,8 @@
     = stylesheet_link_tag "blueprint/screen.css", :media => "screen, projection"
     = stylesheet_link_tag "blueprint/print.css", :media => "print"
     
+    = stylesheet_link_tag "formtastic"
+    
     - if use_mobile_browsing?
       = stylesheet_link_tag "application_mobile"
     - else

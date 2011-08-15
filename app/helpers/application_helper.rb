@@ -8,7 +8,7 @@ module ApplicationHelper
       "windows ce; iemobile", "up.browser","up.link","mmp","symbian","smartphone", 
       "midp","wap","vodafone","o2","pocket","kindle", "mobile","pda","psp","treo"]
 
-    agent = request.headers["HTTP_USER_AGENT"].downcase
+    agent = (request.headers["HTTP_USER_AGENT"] || "DEFAULT").downcase
     mobile_browsers.each do |m|
       if agent.match(m)
         session[:browsing_type] = "mobile"

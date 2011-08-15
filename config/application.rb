@@ -39,5 +39,10 @@ module RunningBalance
 
     # Enable the asset pipeline
     config.assets.enabled = true
+
+    config.generators do |g|
+      g.fixture_replacement :machinist
+    end
+
   end
 end

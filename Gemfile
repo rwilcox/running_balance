@@ -44,9 +44,14 @@ gem 'oa-openid', :require => 'omniauth/openid'
 # Deploy with Capistrano
 # gem 'capistrano'
 
+#gem "simple_eav"
+gem 'formtastic', "~> 2.0.0.rc3"
+
+
 group :test, :development do
   # To use debugger
   gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'rspec-rails'
   gem "jasmine"
   gem 'mongrel', '1.2.0.pre2'
 end
@@ -54,17 +59,18 @@ end
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
-  gem 'rspec-rails'
   gem 'shoulda-matchers'
-
+  gem "machinist", '>= 2.0.0.beta2'
   gem 'cucumber'
   gem 'cucumber-rails'
   gem 'capybara-webkit'
   gem 'database_cleaner'
-  gem 'formtastic'
   gem 'pathy'
 #  gem 'jasmine-headless-webkit'  # requires QT 4.7, but we only easily have 4.6 on Ubuntu. WD-rpw 08-11-2011
   gem 'rack-jsonp-middleware'
+  gem 'sham'
+  gem 'faker'
+  gem 'spork'
 end
 
 group :development, :test do
