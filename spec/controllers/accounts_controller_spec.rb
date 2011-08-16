@@ -11,6 +11,25 @@ describe AccountsController do
     {:user_id => @current_user.id, :starting_balance => 42, :name => "Test Account"}
   end
 
+describe "as a user accessing the API through a token" do
+  before(:each) do
+    @current_user = User.make!
+    @account = Account.make!(:user => @current_user)
+  end
+
+  describe "GET index, as JSON" do
+    it "assigns all the user's accounts as @accounts" do
+      get :index, {auth_token: @current_user.authentication_token, format: 'json'}
+
+      debugger
+      0
+      assigns(:accounts).should eq([@account])
+    end
+  end
+
+end
+
+describe "as a normal sigend in user" do
   before(:each) do
     @current_user = User.make!
     @account = Account.make!(:user => @current_user)
@@ -160,4 +179,5 @@ describe AccountsController do
     end
   end
 
+end
 end
