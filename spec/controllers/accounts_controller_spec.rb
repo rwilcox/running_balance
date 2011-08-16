@@ -21,12 +21,46 @@ describe "as a user accessing the API through a token" do
     it "assigns all the user's accounts as @accounts" do
       get :index, {auth_token: @current_user.authentication_token, format: 'json'}
 
-      debugger
-      0
       assigns(:accounts).should eq([@account])
     end
   end
 
+end
+
+describe "as an unauthorized user" do
+  before(:each) do
+    @another_account = Account.make!(user: User.make!)
+    @current_user = User.make!
+
+    sign_in @current_user
+  end
+  
+  it "GETTING an account gives an authorization error when the user is not authorized for an account" do
+    # Rails will normally handle the 404 better, but there's something broken that
+    # prevents that "better handling" from working in tests:
+    # <http://groups.google.com/group/rspec/browse_thread/thread/8c2cdf5eff47a5d1>
+    expect {
+      get :show, :id => @another_account.id
+    }.to raise_error(ActiveRecord::RecordNotFound)    
+  end
+
+  it "UPDATING an account gives an authorization error when the account does not belong to the current user" do
+    expect {
+      put :update, :id => @another_account.id, :account => {'these' => 'params'}
+    }.to raise_error(ActiveRecord::RecordNotFound)
+  end
+
+  it "EDIT action gives an authorization error when the account does not belong to the current user" do
+    expect {
+      get :edit, :id => @another_account.id.to_s
+    }.to raise_error(ActiveRecord::RecordNotFound)
+  end
+
+  it "DELETE action gives an authorization error when the account does not belong to the user" do
+    expect {
+      delete :destroy, :id => @another_account.id.to_s
+    }.to raise_error(ActiveRecord::RecordNotFound)
+  end
 end
 
 describe "as a normal sigend in user" do
@@ -54,16 +88,6 @@ describe "as a normal sigend in user" do
     it "assigns the requested account as @account" do
       get :show, :id => @account.id.to_s
       assigns(:account).should eq(@account)
-    end
-
-    it "gives an authorization error when the user is not authorized for an account" do
-      pending
-=begin      
-      another_account = Account.make!(user: User.make!)
-      get :show, :id => another_account.id
-
-      response.should
-=end
     end
   end
 
@@ -139,10 +163,6 @@ describe "as a normal sigend in user" do
         put :update, :id => @account.id, :account => valid_attributes
         response.should redirect_to(@account)
       end
-
-      it "gives an authorization error when the account does not belong to the current user" do
-        pending
-      end
     end
 
     describe "with invalid params" do
@@ -172,10 +192,6 @@ describe "as a normal sigend in user" do
     it "redirects to the accounts list" do
       delete :destroy, :id => @account.id.to_s
       response.should redirect_to(accounts_url)
-    end
-
-    it "gives an authorization error when the account does not belong to the current user" do
-      pending
     end
   end
 
