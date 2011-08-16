@@ -1,3 +1,5 @@
+#-*- tab-width: 2; indent-tabs-mode: nil; x-auto-expand-tabs: true; x-counterpart: ../../app/controllers/settings_controller.rb; x-typographers-quotes: false; -*-
+
 require 'spec_helper'
 
 describe SettingsController do
