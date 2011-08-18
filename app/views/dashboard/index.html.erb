@@ -1,7 +1,7 @@
 <h1>Welcome to the app!</h1>
 
 <% if current_user %>
-  <h1>Hello, <%= current_user.email -%></h1>
+  <%= render :partial => "dashboard_signed_in" -%>
 <%- else -%>
   <%= render partial: "shared/signin_links" -%>
 <%- end -%>

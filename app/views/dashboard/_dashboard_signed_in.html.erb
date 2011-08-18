@@ -1,0 +1,13 @@
+<% if current_user.accounts.empty? -%>
+  <div class="tips">
+    <h1>Looks like you need some accounts here</h1>
+    <p>The power in Running Balance is keeping track of your finances at a moment-to-moment level. 
+    Start by <%= link_to "Going to your Accounts page", accounts_path -%> and setting up some accounts.</p>
+    
+    <p>Accounts should mirror the bank accounts you have in real-life. Do you keep track of a
+    checking account for yourself, and checkings account account for your spouse?</p>
+    
+    <p>In this case, it may be appropriate to create 2 accounts in <%= t :product_name -%>, for these two accounts</p>
+    
+  </div>
+<%- end -%>
