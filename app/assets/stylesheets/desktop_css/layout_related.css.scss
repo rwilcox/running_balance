@@ -1,3 +1,4 @@
+
 $header_footer_margin: 2em;
 
 header {
@@ -6,4 +7,13 @@ header {
 
 footer {
 	margin-top: $header_footer_margin;
+}
+
+.tips {
+  background-color: $tip_background_color;
+  border: $border_style;
+
+  h1 {
+  	font-size: 1.25em;
+  }
 }
