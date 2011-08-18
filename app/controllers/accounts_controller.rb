@@ -2,6 +2,8 @@
 
 class AccountsController < ApplicationController
   before_filter :authenticate_user!
+  helper_method :account
+  
 
   # GET /accounts
   # GET /accounts.json
@@ -83,5 +85,11 @@ class AccountsController < ApplicationController
       format.html { redirect_to accounts_url }
       format.json { head :ok }
     end
+  end
+
+protected
+
+  def account
+    @account ||= current_user.accounts.find(params[:id])
   end
 end

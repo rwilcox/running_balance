@@ -5,3 +5,11 @@
 <%- else -%>
   <%= render partial: "shared/signin_links" -%>
 <%- end -%>
+
+<ul class="menu">
+  <% if current_user %>
+    <li><%= link_to("Manage Accounts", accounts_path) -%></li>
+  <%- end -%>
+
+  <li>Switch to <%= use_mobile_browsing?() ?  "Desktop" : "Mobile" -%> browsing experiance</li>
+</ul>

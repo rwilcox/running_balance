@@ -7,6 +7,8 @@ describe "accounts/show.html.erb" do
       :name => "Name",
       :starting_balance => 1
     ))
+
+    view.should_receive(:account).and_return(@account) #  
   end
 
   it "renders attributes in <p>" do

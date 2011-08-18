@@ -1,1 +1,5 @@
-<h1>This is the header!</h1>
+<div id="header">
+  <% unless use_mobile_browsing? -%>
+    <%= link_to( image_tag("logo_desktop.png"), dashboard_path ) -%>
+  <%- end -%>
+</div>

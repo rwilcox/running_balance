@@ -1,0 +1,12 @@
+%h1
+  Show Account
+
+= show_for account do |a|
+  = a.attribute :name
+  = a.attribute :starting_balance
+
+%ul.menu
+  %li
+    = link_to 'Edit', edit_account_path(@account)
+  %li
+    = link_to 'Back', accounts_path

@@ -1,25 +1,26 @@
-<h1>Listing accounts</h1>
+<h1>Your Accounts</h1>
 
 <table>
-  <tr>
-    <th>User</th>
+  <thead>
     <th>Name</th>
     <th>Starting balance</th>
     <th></th>
     <th></th>
     <th></th>
-  </tr>
+  </thead>
 
-<% @accounts.each do |account| %>
-  <tr>
-    <td><%= account.user_id %></td>
-    <td><%= account.name %></td>
-    <td><%= account.starting_balance %></td>
-    <td><%= link_to 'Show', account %></td>
-    <td><%= link_to 'Edit', edit_account_path(account) %></td>
-    <td><%= link_to 'Destroy', account, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+<tbody>
+  <% @accounts.each do |account| %>
+    <tr>
+      <td><%= account.name %></td>
+      <td><%= number_to_currency(account.starting_balance) %></td>
+      <td><%= link_to 'Show', account %></td>
+      <td><%= link_to 'Edit', edit_account_path(account) %></td>
+      <td><%= link_to 'Destroy', account, confirm: 'Are you sure?', method: :delete %></td>
+    </tr>
+  <% end %>
+</tbody>
+
 </table>
 
 <br />
