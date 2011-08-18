@@ -46,7 +46,7 @@ gem 'oa-openid', :require => 'omniauth/openid'
 
 #gem "simple_eav"
 gem 'formtastic', "~> 2.0.0.rc3"
-
+gem 'show_for'
 
 group :test, :development do
   # To use debugger

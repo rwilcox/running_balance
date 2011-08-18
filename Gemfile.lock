@@ -244,6 +244,7 @@ GEM
       rubyzip
     sham (0.5.0)
     shoulda-matchers (1.0.0.beta3)
+    show_for (0.2.4)
     spork (0.8.5)
     sprockets (2.0.0.beta.13)
       hike (~> 1.2)
@@ -298,6 +299,7 @@ DEPENDENCIES
   sass-rails (~> 3.1.0.rc)
   sham
   shoulda-matchers
+  show_for
   spork
   therubyracer
   turn
