@@ -13,7 +13,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
   has_many :accounts # bank accounts...
-
+  has_many :transactions, :through => :accounts
+  
   before_save :ensure_authentication_token
 
   def self.find_for_google_openid(access_token, signed_in_resource=nil)
