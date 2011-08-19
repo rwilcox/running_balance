@@ -1,5 +1,4 @@
 RunningBalance::Application.routes.draw do
-  resources :accounts
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
@@ -10,7 +9,9 @@ RunningBalance::Application.routes.draw do
   root :to => 'dashboard#index', :as => "dashboard"
   match "/dashboard/index", :as => "root"
 
-  resources :accounts
+  resources :accounts do
+    resources :transactions
+  end
 
   resources :settings do
     collection do
