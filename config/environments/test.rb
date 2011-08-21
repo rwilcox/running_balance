@@ -38,4 +38,9 @@ RunningBalance::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+  
+end
+
+Machinist.configure do |config|
+  config.cache_objects = false
 end
