@@ -5,10 +5,6 @@ header {
 	margin-top: $header_footer_margin;
 }
 
-footer {
-	margin-top: $header_footer_margin;
-	clear: both;
-}
 
 .tips {
   background-color: $tip_background_color;
@@ -34,9 +30,17 @@ ul.menu {
 #main {
   position: fixed;
   top: 60px;
+  width: 70%;
 }
+
+/*footer {
+	margin-top: $header_footer_margin;
+	clear: both;
+}
+
 
 footer {
   position: fixed;
   top: 85%;
 }
+*/

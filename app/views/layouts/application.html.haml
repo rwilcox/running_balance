@@ -25,6 +25,7 @@
     = stylesheet_link_tag "blueprint/print.css", :media => "print"
     
     = stylesheet_link_tag "formtastic"
+    = stylesheet_link_tag "sticky_footer"
     
     - if use_mobile_browsing?
       = stylesheet_link_tag "application_mobile"
@@ -44,8 +45,9 @@
         = render partial: "shared/site_header"
       #main.yui3-g
         = yield
-      %footer.yui3-u-1
-        = render partial: "shared/site_footer"
+        .push
+        %footer.yui3-u-1
+          = render partial: "shared/site_footer"
 
     / ! end of #container
     

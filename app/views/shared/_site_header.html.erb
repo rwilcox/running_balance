@@ -12,9 +12,9 @@
     <li class="menu">
       <a href="#" class="menu">More</a>
       <ul class="menu-dropdown" style="display: none";>
-        <li>About</li>
-        <li>API</li>
-        <li>Technical Construction</li>
+        <li><%= link_to "About", pages_about_path -%></li>
+        <li><%= link_to "API", pages_api_path -%></li>
+        <li><%= link_to "Technical Construction", pages_about_technical_path -%></li>
         <% if current_user -%>
           <li><%= link_to "Sign Out", destroy_user_session_path,  :method=>'delete' -%></li>
         <%- end -%>
