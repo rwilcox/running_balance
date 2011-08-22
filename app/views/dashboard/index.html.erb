@@ -1,15 +1,12 @@
-<h1>Welcome to the app!</h1>
+<h1>Welcome to <%= t :product_name -%>!</h1>
 
 <% if current_user %>
   <%= render :partial => "dashboard_signed_in" -%>
+
+  <%= render partial: "accounts/accounts_selector" -%>
+  <div class="clear"></div>
+
 <%- else -%>
   <%= render partial: "shared/signin_links" -%>
 <%- end -%>
 
-<ul class="menu">
-  <% if current_user %>
-    <li><%= link_to("Manage Accounts", accounts_path) -%></li>
-  <%- end -%>
-
-  <li>Switch to <%= use_mobile_browsing?() ?  "Desktop" : "Mobile" -%> browsing experiance</li>
-</ul>

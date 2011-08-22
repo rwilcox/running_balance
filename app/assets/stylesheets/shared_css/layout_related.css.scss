@@ -1,0 +1,17 @@
+.clear {
+  clear: both;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+li {
+  line-height: 18px;
+  color: #808080;
+}
+
+
+header:after {
+  clear: all;
+}

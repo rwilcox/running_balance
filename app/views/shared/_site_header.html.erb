@@ -1,5 +1,28 @@
-<div id="header">
-  <% unless use_mobile_browsing? -%>
-    <%= link_to( image_tag("logo_desktop.png"), dashboard_path ) -%>
-  <%- end -%>
+<div class="topbar">
+  <h3><%= link_to( t(:product_name), dashboard_path ) -%></h3>
+  <ul>
+    <% if current_user %>
+      <li><%= link_to("Manage Accounts", accounts_path) -%></li>
+    <%- end -%>
+
+    <li>Switch to <%= use_mobile_browsing?() ?  "Desktop" : "Mobile" -%> browsing experiance</li>
+  </ul>
+
+  <ul class="nav secondary-nav">
+    <li class="menu">
+      <a href="#" class="menu">More</a>
+      <ul class="menu-dropdown" style="display: none";>
+        <li>About</li>
+        <li>API</li>
+        <li>Technical Construction</li>
+        <% if current_user -%>
+          <li><%= link_to "Sign Out", destroy_user_session_path,  :method=>'delete' -%></li>
+        <%- end -%>
+      </ul>
+    </li>
+  </ul>
+
 </div>
+
+<!-- <div class="clear"></div> -->
+
