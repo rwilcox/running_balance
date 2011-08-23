@@ -1,0 +1,10 @@
+<div class="accounts">
+  <h2>Your Accounts</h2>
+  <ul class="menu acocunts">
+    <% current_user.accounts.each do |curr_account| %>
+      <li class="account" id="<%= dom_id curr_account -%>">
+        <h3><%= link_to curr_account.name, curr_account -%></h3>
+      </li>
+    <%- end -%>
+  </ul>
+</div>
