@@ -13,3 +13,7 @@
   </div>
 <%- end -%>
 
+<% unless current_user.accounts.empty? -%>
+  <%= render partial: "accounts/accounts_selector" -%>
+<%- end -%>
+

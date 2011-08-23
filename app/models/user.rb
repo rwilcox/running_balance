@@ -25,4 +25,10 @@ class User < ActiveRecord::Base
       User.create(:email => data["email"], :password => Devise.friendly_token[0,20]) 
     end
   end
+
+
+  def number_of_transactions_per_account
+    10
+  end
+
 end
