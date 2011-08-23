@@ -44,9 +44,14 @@ class AccountsController < ApplicationController
     respond_with @account
   end
 
+
 protected
 
   def account
     @account ||= current_user.accounts.find(params[:id])
+  end
+
+  def accounts
+    @accounts ||= current_user.accounts
   end
 end
