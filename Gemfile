@@ -24,6 +24,7 @@ gem 'oa-openid', :require => 'omniauth/openid'
 gem 'formtastic', "~> 2.0.0.rc3"
 gem 'show_for'
 gem 'rabl'
+gem 'rack-jsonp-middleware'
 
 # Heroku deployment requirements
 # group :production do
@@ -52,7 +53,6 @@ group :test do
   gem 'database_cleaner'
   gem 'pathy'
 #  gem 'jasmine-headless-webkit'  # requires QT 4.7, but we only easily have 4.6 on Ubuntu. WD-rpw 08-11-2011
-  gem 'rack-jsonp-middleware'
   gem 'sham'
   gem 'faker'
   gem 'spork'
