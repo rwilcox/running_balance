@@ -16,6 +16,7 @@ RunningBalance::Application.routes.draw do
   resources :settings do
     collection do
       post 'switch_browsing_type'
+      get "my"
     end
   end
 

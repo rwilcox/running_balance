@@ -3,6 +3,7 @@
   <ul>
     <% if current_user %>
       <li><%= link_to("Manage Accounts", accounts_path) -%></li>
+      <li><%= link_to("Manage Settings", my_settings_path) -%></li>
     <%- end -%>
 
     <li>Switch to <%= use_mobile_browsing?() ?  "Desktop" : "Mobile" -%> browsing experiance</li>

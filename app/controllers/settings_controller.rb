@@ -7,4 +7,7 @@ class SettingsController < ApplicationController
     session[:browsing_type] = params[:browsing_type]
     redirect_to dashboard_path
   end
+
+  def my;
+  end
 end
