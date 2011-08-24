@@ -10,3 +10,5 @@
     = link_to 'Edit', edit_account_path(@account)
   %li
     = link_to 'Back', accounts_path
+  %li
+    = link_to "Transactions for this Account", account_transactions_path(account)

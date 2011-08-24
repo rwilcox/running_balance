@@ -3,8 +3,13 @@ $header_footer_margin: 2em;
 
 header {
 	margin-top: $header_footer_margin;
+	height:  $header_footer_margin;
 }
 
+.my_container {
+  min-width: 300px;
+  padding-left: 2em;
+}
 
 .tips {
   background-color: $tip_background_color;
@@ -28,11 +33,23 @@ ul.menu {
 }
 
 #main {
-  position: fixed;
-  top: 60px;
-  width: 70%;
 }
 
+details table {
+  margin-left: 3em;
+  margin-bottom: 3em;
+}
+
+div.account {
+
+  margin-bottom: 2em;
+
+  details p {
+    margin: 0;
+
+  }
+
+}
 /*footer {
 	margin-top: $header_footer_margin;
 	clear: both;

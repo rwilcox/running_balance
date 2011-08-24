@@ -1,15 +1,20 @@
 <div class="accounts">
   <h2>Your Accounts</h2>
-  <ul class="accounts">
+  <div class="accounts">
     <% current_user.accounts.each do |curr_account| %>
-      <li class="account" id="<%= dom_id curr_account -%>">
-        <h3><%= link_to curr_account.name, curr_account -%></h3>
-        <%= recent_transactions_widget_for(curr_account) -%>
-        <p><span class="account_current_balance">Current Balance of Account: <%= number_to_currency(curr_account.current_balance_active_only) -%></span></p>
-        <p><span class="account_pending_balance">Balance of Account, including pending transactions: <%= number_to_currency(curr_account.current_balance) -%></span></p>
+      <div class="account" id="<%= dom_id curr_account -%>">
+        <details>
+          <summary><%= link_to curr_account.name, curr_account -%>
+            <p><%= link_to "New Transaction for account", new_account_transaction_path(curr_account) -%></p>
+            <p class="additional_info">
+              <span class="account_current_balance">Current Balance of Account: <%= number_to_currency(curr_account.current_balance_active_only) -%></span>
+              <span class="account_pending_balance">(with pending: <%= number_to_currency(curr_account.current_balance) -%>)</span>
+            </p>
+          </summary>
         
-        <p><%= link_to "New Transaction for account", new_account_transaction_path(curr_account) -%></p>
-      </li>
+        <%= recent_transactions_widget_for(curr_account) -%>
+        </details>
+      </div>
     <%- end -%>
-  </ul>
+  </div>
 </div>

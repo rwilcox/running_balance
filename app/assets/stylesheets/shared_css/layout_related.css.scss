@@ -15,3 +15,18 @@ li {
 header:after {
   clear: all;
 }
+
+.additional_info {
+  color: gray;
+  font-size: 90%;
+  font-style: italic;
+}
+
+div.accounts div.account {
+
+/*
+  nth-of-type(odd) {
+    background:#e5ecf9; from BlueprintCSS
+  }
+*/
+}

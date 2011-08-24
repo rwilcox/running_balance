@@ -1,8 +1,12 @@
 class Transaction < ActiveRecord::Base
   belongs_to :account
 
+  validates_presence_of :description
+  validates_presence_of :amount
+  validates_numericality_of :amount
+
   delegate :user, :to => :account
-  delegate :name, :to => :account, :prefix => :true
+  delegate :name, :to => :account, :prefix => :account
 
   before_save :default_active_on
 

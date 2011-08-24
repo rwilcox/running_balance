@@ -2,7 +2,7 @@ module TransactionsHelper
 
   def recent_transactions_widget_for(curr_account)
     content_tag :table, class: "transactions" do
-      "<thead><th>Description</th><th>Amount</th><th></th></thead><tbody>".html_safe <<
+      "<thead><tr><th>Description</th><th>Amount</th><th></th></tr></thead><tbody>".html_safe <<
       curr_account.recent_transactions(limit: current_user.number_of_transactions_per_account).collect {|curr_transaction|
         content_tag :tr, class: "transaction" do
           ("<td class='transaction_field transaction_description'>#{curr_transaction.description}</td>" <<
