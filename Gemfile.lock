@@ -63,6 +63,7 @@ GEM
       execjs
     coffee-script-source (1.1.2)
     columnize (0.3.4)
+    csv_builder (2.0.1)
     cucumber (1.0.2)
       builder (>= 2.1.2)
       diff-lcs (>= 1.1.2)
@@ -278,6 +279,7 @@ DEPENDENCIES
   capybara-webkit
   coffee-filter
   coffee-rails (~> 3.1.0.rc)
+  csv_builder
   cucumber
   cucumber-rails
   database_cleaner

@@ -25,6 +25,7 @@ gem 'formtastic', "~> 2.0.0.rc3"
 gem 'show_for'
 gem 'rabl'
 gem 'rack-jsonp-middleware'
+gem 'csv_builder'
 
 # Heroku deployment requirements
 # group :production do
