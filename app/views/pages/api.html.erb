@@ -1,2 +1,17 @@
-<h2>Coming soon!</h2>
-<!-- TODO: write me!! -->
+<h2>(More) Coming soon!</h2>
+<p>More detailed docs on the API are coming soon, however there are some things you can try now:</p>
+<ol>
+<li>add <code>.json</code> to the end of any URL and you should see JSON back! <em>Pages under the <code>/pages/</code>URL excluded</em></li>
+<li>You should also be able to get <code>jsonp</code> back too, by just adding <code>.jsonp</code> and a callback parameter! 
+(May require setting the dataType in a jQuery request)</li>
+<li>
+  <p>The authentication is token authenticatable. You should be able to use your Token to gain access into the system, like so:</p>
+  <p><%= dashboard_path(auth_token: 112345) -%></p>
+  <p>A user's Auth Token can be found on the Manage Settings page</p>
+</li>
+</ol>
+
+<p>I am a big fan of REST, particularly web apps returning the correct representation of the
+resource for the format requested. For example, the dashboard page (<code>/</code>) returns
+the same information in JSON as it does in its HTML version!</p>
+<!-- TODO: write MORE!! -->
