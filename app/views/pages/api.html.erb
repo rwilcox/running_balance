@@ -7,11 +7,15 @@
 <li>
   <p>The authentication is token authenticatable. You should be able to use your Token to gain access into the system, like so:</p>
   <p><%= dashboard_path(auth_token: 112345) -%></p>
-  <p>A user's Auth Token can be found on the Manage Settings page</p>
+  <p>A user's Auth Token can be found on the <%= link_to "Manage Settings", my_settings_path -%> page</p>
 </li>
 </ol>
 
 <p>I am a big fan of REST, particularly web apps returning the correct representation of the
 resource for the format requested. For example, the dashboard page (<code>/</code>) returns
 the same information in JSON as it does in its HTML version!</p>
+
+<p><em>Oh really?!</em>, you say?. <strong>Yes</strong>, I say. For further proof check out a
+blog entry I wrote May 22, 2011: <%= link_to "Rails, REST and .js (TL;DR: We're doing it wrong)", "http://blog.wilcoxd.com/blog/2011/05/22/rails-rest-and-js-tldr-were-doing-it-wrong/" -%></p>
+
 <!-- TODO: write MORE!! -->
