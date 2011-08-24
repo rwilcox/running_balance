@@ -1,6 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require 'rack/jsonp'
 
 # If you have a Gemfile, require the default gems, the ones in the
 # current environment and also include :assets gems if in development
@@ -44,5 +45,6 @@ module RunningBalance
       g.fixture_replacement :machinist
     end
 
+    config.middleware.use Rack::JSONP
   end
 end
