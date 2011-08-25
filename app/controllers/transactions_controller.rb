@@ -10,6 +10,7 @@ class TransactionsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @transactions }
+      # format.csv  { 
     end
   end
 
@@ -47,8 +48,11 @@ class TransactionsController < ApplicationController
 
     respond_to do |format|
       if @transaction.save
-        format.html { redirect_to account_transaction_path(current_account, @transaction),
-            notice: 'Transaction was successfully created.' }
+        format.html { 
+            redirect_to_target_or_default(
+                account_transaction_path(current_account, @transaction),
+                notice: 'Transaction was successfully created.' )
+        }
         format.json { render json: @transaction, status: :created, location: @transaction }
       else
         format.html { render action: "new" }
@@ -64,8 +68,12 @@ class TransactionsController < ApplicationController
 
     respond_to do |format|
       if @transaction.update_attributes(params[:transaction])
-        format.html { redirect_to account_transaction_url(current_account, @transaction),
-            notice: 'Transaction was successfully updated.' }
+        format.html { 
+            redirect_to_target_or_default(
+                account_transaction_url(current_account, @transaction),
+                notice: 'Transaction was successfully updated.'
+            )
+        }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
