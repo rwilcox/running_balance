@@ -10,7 +10,7 @@ class TransactionsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @transactions }
+      format.json
       format.csv
     end
   end
@@ -22,7 +22,7 @@ class TransactionsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @transaction }
+      format.json
     end
   end
 

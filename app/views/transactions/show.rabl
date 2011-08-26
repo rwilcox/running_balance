@@ -1,6 +1,6 @@
 object @transaction
 
-code :path do |t|
+code :uri do |t|
   account_transaction_url(t.account, t)
 end
 

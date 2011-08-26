@@ -1,5 +1,11 @@
-<h2>(More) Coming soon!</h2>
-<p>More detailed docs on the API are coming soon, however there are some things you can try now:</p>
+<h2>API Documentation</h2>
+
+<p>I like documentation, so here is some for the API. However, this is a
+<%= link_to "Ruby on Rails", "http://www.rubyonrails.org" -%> based site, so standard Rails
+conventions about REST and how you interact with it apply.</p>
+
+<h3>Some initial ground-rules</h3>
+
 <ol>
 <li>add <code>.json</code> to the end of any URL and you should see JSON back! <em>Pages under the <code>/pages/</code>URL excluded</em></li>
 <li>You should also be able to get <code>jsonp</code> back too, by just adding <code>.jsonp</code> and a callback parameter! 
@@ -12,10 +18,31 @@
 </ol>
 
 <p>I am a big fan of REST, particularly web apps returning the correct representation of the
-resource for the format requested. For example, the dashboard page (<code>/</code>) returns
+resource for the format requested. For example, the dashboard page
+(<code><%= link_to "/index", "/index" -%></code>) returns
 the same information in JSON as it does in its HTML version!</p>
 
 <p><em>Oh really?!</em>, you say?. <strong>Yes</strong>, I say. For further proof check out a
 blog entry I wrote May 22, 2011: <%= link_to "Rails, REST and .js (TL;DR: We're doing it wrong)", "http://blog.wilcoxd.com/blog/2011/05/22/rails-rest-and-js-tldr-were-doing-it-wrong/" -%></p>
 
-<!-- TODO: write MORE!! -->
+<h3>Available formats</h3>
+
+<p>As a general rule, resources in <%= t :product_name -%> should respond to the following formats:
+<ul>
+<li><code>JSON</code></li>
+<li><code>JSONP</code></li>
+<li><code>XML</code></li>
+</ul>
+</p>
+
+<p>Index views have <code>CSV</code> as an available format.</p>
+
+<h3>Great, this is REST how do I discover the API?</h3>
+
+<p>Use <%= link_to "/index.json", "/index.json" -%> (or .XML, if you wish).</p>
+<p>This will download the representation of the page - including URIs to resources referenced
+(or, "linked", to use HTML terms) on the initally requested resource.</p>
+
+<p>Then, simply follow the URIs to where they might lead!</p>
+<p>In general, index pages and show pages, in particular, exhibit this behavior of URI discoverability
+of referenced resources.</p>
