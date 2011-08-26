@@ -3,6 +3,8 @@
 <table>
   <thead><tr>
     <th>Name</th>
+    <th>Current balance</th>
+    <th>Current balance + Pending Transactions</th>
     <th>Starting balance</th>
     <th></th>
     <th></th>
@@ -13,6 +15,8 @@
   <% @accounts.each do |account| %>
     <tr>
       <td><%= account.name %></td>
+      <td><%= number_to_currency( account.current_balance_active_only ) -%></td>
+      <td><%= number_to_currency( account.current_balance ) -%></td>
       <td><%= number_to_currency(account.starting_balance) %></td>
       <td><%= link_to 'Show', account %></td>
       <td><%= link_to 'Edit', edit_account_path(account) %></td>
@@ -25,4 +29,7 @@
 
 <br />
 
-<%= link_to 'New Account', new_account_path %>
+<%= button_to 'New Account', new_account_path, class: "btn large", method: "get" %>
+
+<%= button_to "Download Accounts as CSV", 
+    accounts_path(:format => "csv"), :class => "btn large", :method => :get -%>

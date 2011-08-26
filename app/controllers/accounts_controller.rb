@@ -4,10 +4,11 @@ class AccountsController < ApplicationController
   before_filter :authenticate_user!
   helper_method :account
 
-  respond_to :html, :json
+  respond_to :html, :json, :csv
 
   def index
     @accounts = current_user.accounts
+    @filename = "accounts.csv"
     respond_with @accounts
   end
 

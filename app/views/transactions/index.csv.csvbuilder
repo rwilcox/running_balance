@@ -1,0 +1,13 @@
+# header row
+csv << ["Account Name", "Description", "Amount", "Active On"]
+
+row_data = [] # for scoping
+@transactions.each do |transaction|
+  row_data = [transaction.account_name, transaction.description]     
+  row_data << number_to_currency(transaction.amount)
+  row_data << transaction.active_on
+
+  csv << row_data.dup     # it breaks if you don't dup
+end
+
+csv << [] # gap for visibility

@@ -27,4 +27,7 @@
 
 <br />
 
-<%= link_to 'New Transaction', new_account_transaction_path(current_account) %>
+<%= button_to 'New Transaction', new_account_transaction_path(current_account), class: "btn large", method: :get %>
+
+<%= button_to "Download Transactions as CSV", 
+    account_transactions_path(current_account, :format => "csv"), :class => "btn large", :method => :get -%>

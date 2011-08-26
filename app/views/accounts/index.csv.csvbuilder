@@ -1,0 +1,14 @@
+# header row
+csv << ["Account Name", "Starting Balance", "Current Balance", "Current Balance Including Pending Transactions"]
+
+row_data = [] # for scoping
+current_user.accounts.each do |the_account|
+  row_data = [the_account.name]
+  row_data << number_to_currency(the_account.starting_balance)
+  row_data << number_to_currency(the_account.current_balance_active_only)
+  row_data << number_to_currency(the_account.current_balance)
+
+  csv << row_data.dup     # it breaks if you don't dup
+end
+
+csv << [] # gap for visibility

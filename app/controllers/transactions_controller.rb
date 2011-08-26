@@ -5,12 +5,13 @@ class TransactionsController < ApplicationController
   # GET /transactions
   # GET /transactions.json
   def index
-    @transactions = current_account.transactions
+    @transactions = current_account.transactions.sort_by_date
+    @filename = "transactions.csv"
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @transactions }
-      # format.csv  { 
+      format.csv
     end
   end
 
