@@ -26,6 +26,7 @@ gem 'show_for'
 gem 'rabl'
 gem 'rack-jsonp-middleware'
 gem 'csv_builder'
+gem 'mongrel', '1.2.0.pre2'
 
 # Heroku deployment requirements
 # group :production do
