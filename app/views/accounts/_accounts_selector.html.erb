@@ -4,7 +4,7 @@
     <% current_user.accounts.each do |curr_account| %>
       <div class="account" id="<%= dom_id curr_account -%>">
         <details>
-          <summary><%= link_to curr_account.name, curr_account -%>
+          <summary><h3><%= link_to curr_account.name, curr_account -%></h3>
             <p><%= link_to "New Transaction for account", new_account_transaction_path(curr_account) -%></p>
             <p class="additional_info">
               <span class="account_current_balance">Current Balance of Account: <%= number_to_currency(curr_account.current_balance_active_only) -%></span>
