@@ -21,7 +21,7 @@ class Account < ActiveRecord::Base
 
   def recent_transactions(*args)
     options = args.extract_options!
-
-    transactions.active.order("active_on DESC").limit( options[:limit] )
+    options[:limit] ||= 10 # TODO: should be current_user.number_of_transactions_per_account
+    transactions.active.sort_by_date.limit( options[:limit] )
   end
 end

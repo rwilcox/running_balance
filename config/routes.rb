@@ -8,6 +8,7 @@ RunningBalance::Application.routes.draw do
 
   root :to => 'dashboard#index', :as => "dashboard"
   match "/dashboard/index", :as => "root"
+  match "index" => "dashboard#index"
 
   resources :accounts do
     resources :transactions
