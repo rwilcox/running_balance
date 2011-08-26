@@ -26,6 +26,7 @@
     
     = stylesheet_link_tag "formtastic"
     = stylesheet_link_tag "sticky_footer"
+    = stylesheet_link_tag "html5_fallbacks_details.css"
     
     - if use_mobile_browsing?
       = stylesheet_link_tag "application_mobile"
@@ -39,6 +40,7 @@
       Modernizr enables HTML5 elements &amp; feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
       For optimal performance, use a custom Modernizr build: www.modernizr.com/download/
     = javascript_include_tag "modernizr"
+    
   %body
     .container.my_container
       %header
@@ -52,4 +54,5 @@
     / ! end of #container
     
     = javascript_include_tag "application"
+    = javascript_include_tag "html5_fallbacks_details"
     / = render partial: "shared/google_analytics"  

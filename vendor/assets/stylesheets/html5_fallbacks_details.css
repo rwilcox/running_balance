@@ -1,0 +1,32 @@
+/* <details> and <summary> are block level elements */
+details, summary { display: block; }
+
+/* The following styles will only get applied if JavaScript is enabled and <details> is not natively supported */
+
+/* Add focus styles (for keyboard accessibility) */
+.no-details summary:hover, .no-details summary:focus { background: #ddd; }
+
+/* The following styles are not really needed, since the jQuery script takes care of hiding/displaying the elements. */
+/* However, we’re still gonna use CSS as well to prevent FOUC in browsers that understand these selectors. */
+/* Remember: by default (and probably most of the time), the contents of the <details> element are hidden. */
+
+/* Hide all direct descendants of every <details> element */
+/* Note that IE6 doesn’t support the child selector; we’ll work around that using jQuery later */
+.no-details details > * { display: none; }
+
+/* Make sure summary remains visible, and apply a pointer cursor upon hover to indicate it’s a clickable element */
+.no-details details summary { display: block; cursor: pointer; }
+
+
+.no-details details summary:before { content: '\25BA'; }    /* right pointing unicode arrow */
+.no-details details[open] summary:before { content: '\25BC '; }  /* down pointing unicode arrow */
+
+/* And yes, it should really be ::before, but that doesn’t work in IE8 */
+.no-details details summary:before { float: left; width: 20px; content: '\25BA'; }
+.no-details details.open summary:before { content: '\25BC '; }
+/* For IE6 and IE7, who don’t support generated content, you could use padding-left + a background image instead */
+/* I really couldn’t be bothered though. */
+/*
+.no-details details summary { padding-left: 20px; background: url(img/arrow-sprite.png) no-repeat 0 0; }
+.no-details details.open summary { background-position: 0 -20px; }
+*/
