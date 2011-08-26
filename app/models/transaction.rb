@@ -16,6 +16,10 @@ class Transaction < ActiveRecord::Base
     where( ["active_on <= ?", Date.today] )
   end
 
+  def self.sort_by_date
+    order("active_on DESC")
+  end
+
 
   def default_active_on
     self.active_on = Date.today unless active_on
