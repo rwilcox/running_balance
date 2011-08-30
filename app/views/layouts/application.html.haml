@@ -30,6 +30,10 @@
     
     - if use_mobile_browsing?
       = stylesheet_link_tag "application_mobile"
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      
+      <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.css" />
+      = javascript_include_tag "mobile_transformations"
     - else
       = stylesheet_link_tag "application_desktop"
     
@@ -42,13 +46,13 @@
     = javascript_include_tag "modernizr"
     
   %body
-    .container.my_container
-      %header
+    .container.my_container{"data-role" => "page"}
+      %header{"data-role" => "header"}
         = render partial: "shared/site_header"
-      #main.yui3-g
+      #main.yui3-g{"data-role" => "content"}
         = yield
         .push
-        %footer.yui3-u-1
+        %footer.yui3-u-1{"data-role" => "footer", "data-position" => "fixed"}
           = render partial: "shared/site_footer"
 
     / ! end of #container

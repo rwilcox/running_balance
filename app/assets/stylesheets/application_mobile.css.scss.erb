@@ -1,0 +1,11 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+*/
+
+<%# "WTF?!!! Why not?..." Answer: <http://rwilcox.tumblr.com/post/9038701675/sass-variables-and-the-rails-3-1-asset-pipeline> %>
+
+<%= AssetPath.sass_require( Rails.root.join("app/assets/stylesheets/"), "shared_css" ) %>
+<%= AssetPath.sass_require( Rails.root.join("app/assets/stylesheets/"), "mobile_css" ) %>
+

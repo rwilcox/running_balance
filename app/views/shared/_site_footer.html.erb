@@ -1,2 +1,10 @@
+<p>
+<% what_type = use_mobile_browsing?() ?  'desktop' : 'mobile' -%>
+
+<%= button_to "Switch to #{what_type} browsing experiance",
+  switch_browsing_type_settings_path(browsing_type: what_type)
+-%>
+</p>
+
 <p><%= t :product_name -%> is a <a href="http://www.wilcoxd.com">Wilcox Development Solutions</a> ditty, &copy; 2011.<br />
 Questions? Comments? <%= link_to "Contact us, at Wilcox Development Solutions", "http://wilcoxd.com/contactus.html" -%></p>
