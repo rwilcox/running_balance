@@ -1,8 +1,9 @@
 <p>
 <% what_type = use_mobile_browsing?() ?  'desktop' : 'mobile' -%>
 
-<%= button_to "Switch to #{what_type} browsing experiance",
-  switch_browsing_type_settings_path(browsing_type: what_type)
+<%= link_to "Switch to #{what_type} browsing experience",
+  switch_browsing_type_settings_path(browsing_type: what_type),
+  "rel" => "external", class: "btn"
 -%>
 </p>
 
