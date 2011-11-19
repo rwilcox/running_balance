@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  extend DelegatePresenter::ApplicationController
+
   protect_from_forgery
 
   helper :all
