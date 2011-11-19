@@ -1,5 +1,11 @@
+.account_menu
+  %h1
+    Add New Transaction
+
+  = link_to 'New Transaction', new_account_transaction_path(@account)
+
 %h1
-  Show Account
+  Account Info
 
 = show_for account do |a|
   = a.attribute :name
