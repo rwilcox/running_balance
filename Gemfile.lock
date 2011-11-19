@@ -71,6 +71,8 @@ GEM
       nokogiri (>= 1.4.6)
     daemons (1.0.10)
     database_cleaner (0.6.7)
+    delegate_presenter (0.0.2)
+      rails
     devise (1.4.4)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
@@ -278,6 +280,7 @@ DEPENDENCIES
   cucumber
   cucumber-rails
   database_cleaner
+  delegate_presenter
   devise
   faker
   formtastic (~> 2.0.0.rc3)

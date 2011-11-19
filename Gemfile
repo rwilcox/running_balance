@@ -27,6 +27,7 @@ gem 'rabl'
 gem 'rack-jsonp-middleware'
 gem 'csv_builder'
 gem 'mongrel', '1.2.0.pre2'
+gem "delegate_presenter"
 
 # Heroku deployment requirements
 # group :production do
