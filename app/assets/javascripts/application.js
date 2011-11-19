@@ -7,5 +7,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require underscore-min.js
-//= require jquery.mobile.1.0.b2.min
 //= require_tree .
