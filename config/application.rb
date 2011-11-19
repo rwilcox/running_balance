@@ -41,6 +41,8 @@ module RunningBalance
 
     # Enable the asset pipeline
     config.assets.enabled = true
+    config.assets.paths << "#{Rails.root}/vendor/assets/images"
+
 
     config.generators do |g|
       g.fixture_replacement :machinist
