@@ -1,13 +1,8 @@
 <div class="accounts">
   <h2>Your Accounts</h2>
-  <div class="accounts">
+  <ul class="accounts" data-role="listview">
   <% current_user.accounts.each do |curr_account| %>
-    <div class="account" data-role="collapsible" data-collapsed="true" id="<%= dom_id curr_account -%>">
-      <h3><%= link_to curr_account.name, curr_account, class: "normal" -%></h3>
-      <p><%= link_to "New Transaction for account", new_account_transaction_path(curr_account) -%></p>
-      <p><%= link_to "More account details", account_path(curr_account) -%></p>
-      <%= recent_transactions_widget_for(curr_account) -%>
-    </div>
+    <li><%= link_to Present(curr_account).name_and_info, curr_account, class: "normal" -%></li>
   <%- end -%>
-  </div>
+  </ul>
 </div>
