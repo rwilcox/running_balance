@@ -10,11 +10,12 @@ module AssetPath
   # where you list every file manually in the application.css.scass file.
   def self.sass_require(base_dir, *inside_dirs)
     output = ""
-    Dir[File.join(base_dir, *inside_dirs, "/**/*")].sort.each do |stylesheet_path| 
-      unless File.directory?(stylesheet_path) 
-        current_file_name = stylesheet_path.gsub(base_dir.to_s, '') 
+    Dir[File.join(base_dir, *inside_dirs, "/**/*")].sort.each do |stylesheet_path|
+      unless File.directory?(stylesheet_path)
+        current_file_name = stylesheet_path.gsub(base_dir.to_s, '')
+        output << "/* now including #{current_file_name} */"
         output << "@import '#{current_file_name}';\n"
-      end 
+      end
     end
 
     output
