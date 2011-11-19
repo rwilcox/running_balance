@@ -23,19 +23,19 @@
 
     = stylesheet_link_tag "blueprint/screen.css", :media => "screen, projection"
     = stylesheet_link_tag "blueprint/print.css", :media => "print"
-    
+
     = stylesheet_link_tag "formtastic"
     = stylesheet_link_tag "html5_fallbacks_details.css"
-    
+
     - if use_mobile_browsing?
       = stylesheet_link_tag "application_mobile"
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      
-      <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.css" />
+
+      = stylesheet_link_tag "jquery.mobile-1.0.min.css"
       = javascript_include_tag "mobile_transformations"
     - else
       = stylesheet_link_tag "application_desktop"
-    
+
     = csrf_meta_tags
     / More ideas for your head here: h5bp.com/docs/#head-Tips
     /
@@ -43,7 +43,7 @@
       Modernizr enables HTML5 elements &amp; feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
       For optimal performance, use a custom Modernizr build: www.modernizr.com/download/
     = javascript_include_tag "modernizr"
-    
+
   %body
     .container.my_container{"data-role" => "page"}
       %header{"data-role" => "header"}
@@ -55,7 +55,9 @@
           = render partial: "shared/site_footer"
 
     / ! end of #container
-    
+
     = javascript_include_tag "application"
+    - if use_mobile_browsing?
+      = javascript_include_tag "jquery.mobile.1.0.min"
     = javascript_include_tag "html5_fallbacks_details"
-    / = render partial: "shared/google_analytics"  
+    / = render partial: "shared/google_analytics"
