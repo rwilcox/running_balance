@@ -1,5 +1,10 @@
 <h1>Listing transactions</h1>
 
+<form id="live_search">
+    <label for="search">Live Search:</label>
+    <input type="search" id="search" results=3>
+</form>
+
 <table>
   <thead><tr>
     <th>Description</th>
@@ -29,5 +34,5 @@
 
 <%= button_to 'New Transaction', new_account_transaction_path(current_account), class: "btn large", method: :get %>
 
-<%= button_to "Download Transactions as CSV", 
+<%= button_to "Download Transactions as CSV",
     account_transactions_path(current_account, :format => "csv"), :class => "btn large", :method => :get -%>

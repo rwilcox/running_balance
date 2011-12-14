@@ -7,4 +7,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require underscore-min.js
+//= require jquery.quicksearch.js
 //= require_tree .
+
