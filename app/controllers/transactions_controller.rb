@@ -34,6 +34,7 @@ class TransactionsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @transaction }
+      format.partial { render "new", :layout => false }
     end
   end
 
@@ -49,7 +50,7 @@ class TransactionsController < ApplicationController
 
     respond_to do |format|
       if @transaction.save
-        format.html { 
+        format.html {
             redirect_to_target_or_default(
                 account_transaction_path(current_account, @transaction),
                 notice: 'Transaction was successfully created.' )
@@ -69,7 +70,7 @@ class TransactionsController < ApplicationController
 
     respond_to do |format|
       if @transaction.update_attributes(params[:transaction])
-        format.html { 
+        format.html {
             redirect_to_target_or_default(
                 account_transaction_url(current_account, @transaction),
                 notice: 'Transaction was successfully updated.'
