@@ -2,7 +2,7 @@
 
 class AccountsController < ApplicationController
   before_filter :authenticate_user!
-  helper_method :account
+  helper_method :current_account, :current_transaction
 
   respond_to :html, :json, :xml, :csv
 
@@ -13,7 +13,12 @@ class AccountsController < ApplicationController
 
   def show
     @account = current_user.accounts.find(params[:id])
-    respond_with @account
+    #respond_with @account
+    respond_to do |format|
+      format.html { render "show", :layout => appropriate_layout(:just_content => true) }
+      format.json
+      format.csv
+    end
   end
 
   def new
@@ -35,7 +40,7 @@ class AccountsController < ApplicationController
   def update
     @account = current_user.accounts.find(params[:id])
     @account.update_attributes(params[:account])
-    respond_with @account    
+    respond_with @account
   end
 
   def destroy
@@ -47,11 +52,15 @@ class AccountsController < ApplicationController
 
 protected
 
-  def account
+  def current_account
     @account ||= current_user.accounts.find(params[:id])
   end
 
   def accounts
     @accounts ||= current_user.accounts
+  end
+
+  def current_transaction
+    @transaction ||= current_account.transactions.new
   end
 end

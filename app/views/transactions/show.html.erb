@@ -2,19 +2,19 @@
 
 <p>
   <b>Account:</b>
-  <%= @transaction.account_name %>
+  <%= current_transaction.account_name %>
 </p>
 
 <p>
   <b>amount:</b>
-  <%= @transaction.amount %>
+  <%= current_transaction.amount %>
 </p>
 
 <p>
   <b>Description:</b>
-  <%= @transaction.description %>
+  <%= current_transaction.description %>
 </p>
 
 
-<%= link_to 'Edit', edit_account_transaction_path(current_account, @transaction) %> |
+<%= link_to 'Edit', edit_account_transaction_path(current_account, current_transaction) %> |
 <%= link_to 'Back', account_transactions_path(current_account) %>

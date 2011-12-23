@@ -1,7 +1,7 @@
-= semantic_form_for( [current_account, @transaction] ) do |f|
+= semantic_form_for( [current_account, current_transaction] ) do |f|
   - f.inputs do
-    = f.input :description
-    = f.input :amount, as: :number, input_html: {size: 8, maxlength: 9}
+    = f.input :description, input_html: {placeholder: "Purchase"}
+    = f.input :amount, as: :number, input_html: {size: 8, maxlength: 9, placeholder: "-42"}
     = f.input(:active_on) unless use_mobile_browsing?
     = f.buttons do
       = f.commit_button
