@@ -1,0 +1,5 @@
+= javascript_include_tag "application"
+- if use_mobile_browsing?
+  = javascript_include_tag "jquery.mobile.1.0.min"
+= javascript_include_tag "html5_fallbacks_details"
+/ = render partial: "shared/google_analytics"
