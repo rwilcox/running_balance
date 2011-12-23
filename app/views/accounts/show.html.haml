@@ -1,22 +1,42 @@
-.account_menu
-  %h1
-    Add New Transaction
+%div{"data-role" => "page", id: "show"}
+  %div{"data-role" => "header"}
+    = render partial: "shared/mobile_page_header", locals: {page_name: "Account Info"}
 
-  = link_to 'New Transaction', new_account_transaction_path(@account)
+  %div{"data-role" => "content"}
+    .account_menu
 
-%h1
-  Account Info
+      %h1
+        Add New Transaction
 
-= show_for account do |a|
-  = a.attribute :name
-  = a.attribute :current_balance
-  = a.attribute :current_balance_active_only
-  = a.attribute :starting_balance
+      = link_to_appropriate 'New Transaction', desktop: new_account_transaction_path(@account), mobile: "#entry"
 
-%ul.menu
-  %li
-    = link_to 'Edit', edit_account_path(@account)
-  %li
-    = link_to 'Back', accounts_path
-  %li
-    = link_to "Transactions for this Account", account_transactions_path(account)
+
+    = show_for current_account do |a|
+      = a.attribute :name
+      = a.attribute :current_balance
+      = a.attribute :current_balance_active_only
+      = a.attribute :starting_balance
+
+  %div{"data-role" => "footer"}
+    %ul.menu
+      %li
+        = link_to 'Edit', edit_account_path(current_account)
+      %li
+        = link_to 'Back', accounts_path(current_account)
+      %li
+        = link_to "Transactions for this Account", account_transactions_path(current_account)
+
+%div{"data-role" => "page", "id" => "entry"}
+  %div{"data-role" => "header"}
+    = render partial: "shared/mobile_page_header", locals: {page_name: "Enter Transaction"}
+
+  %div{"data-role" => "content"}
+    = render 'transactions/form'
+
+  %div{"data-role" => "footer"}
+    %ul.menu
+      %li
+        = link_to 'Cancel', "#show", {"data-direction" => "reverse"}
+
+
+
