@@ -18,4 +18,14 @@ module ApplicationHelper
 
     return false
   end
+
+  def link_to_appropriate( page_name, our_options={}, link_to_options={} )
+
+    page_path = ""
+    if our_options[:desktop] || our_options[:mobile]
+      page_path = ( use_mobile_browsing?() ? our_options[:mobile] : our_options[:desktop] )
+    end
+
+    link_to page_name, page_path
+  end
 end
