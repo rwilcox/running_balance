@@ -1,0 +1,15 @@
+<!doctype html>
+/ paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+/[if lt IE 7] <html class="no-js ie6 oldie" lang="en">
+/[if IE 7] <html class="no-js ie7 oldie" lang="en">
+/[if IE 8] <html class="no-js ie8 oldie" lang="en">
+/ [if gt IE 8]><!
+%html.no-js{:lang => "en"}
+  / <![endif]
+  %head
+    = render "layouts/header"
+
+  %body
+    = yield
+
+    = render "layouts/footer"
