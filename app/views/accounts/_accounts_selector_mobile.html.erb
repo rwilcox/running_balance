@@ -2,7 +2,7 @@
   <h2>Your Accounts</h2>
   <ul class="accounts" data-role="listview">
   <% current_user.accounts.each do |curr_account| %>
-    <li><%= link_to Present(curr_account).name_and_info, curr_account, class: "normal" -%></li>
+    <li><%= link_to Present(curr_account).name_and_info, curr_account, {"class" => "normal", "data-ajax" => "false"} -%></li>
   <%- end -%>
   </ul>
 </div>

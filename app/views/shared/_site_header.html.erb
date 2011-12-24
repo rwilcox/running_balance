@@ -1,5 +1,5 @@
 <div class="topbar">
-  <h3><%= link_to( t(:product_name), dashboard_path ) -%></h3>
+  <h3><%= link_to( t(:product_name), dashboard_path, {"data-ajax" => "false"} ) -%></h3>
   <ul>
     <% if current_user %>
       <li><%= link_to("Manage Accounts", accounts_path) -%></li>
