@@ -1,3 +1,5 @@
+#-*- tab-width: 2; indent-tabs-mode: nil; x-auto-expand-tabs: true; x-counterpart: ../../spec/helpers/application_helper_spec.rb; x-typographers-quotes: false; -*-
+
 module ApplicationHelper
   def use_mobile_browsing?
     return session[:browsing_type] == "mobile" if session[:browsing_type]
@@ -18,6 +20,7 @@ module ApplicationHelper
 
     return false
   end
+
 
   def link_to_appropriate( page_name, our_options={}, link_to_options={} )
     page_path = ""
