@@ -1,7 +1,6 @@
 $header_footer_margin: 2em;
 
 header {
-	margin-top: $header_footer_margin;
 }
 
 footer {
@@ -23,8 +22,7 @@ ul .menu {
 
 .my_container {
   width: 90%;
-  padding-left: 5%;
-  padding-right: 5%;
+/* do NOT pad this to the left or right - respect space on mobile */
 }
 
 a {
