@@ -1,6 +1,7 @@
 %div{"data-role" => "page", id: "show"}
   %div{"data-role" => "header"}
-    = render partial: "shared/mobile_page_header", locals: {page_name: "Account Info"}
+    - if use_mobile_browsing?
+      = render partial: "shared/mobile_page_header", locals: {page_name: "Account Info"}
 
   %div{"data-role" => "content"}
     .account_menu
@@ -26,17 +27,18 @@
       %li
         = link_to "Transactions for this Account", account_transactions_path(current_account)
 
-%div{"data-role" => "page", "id" => "entry"}
-  %div{"data-role" => "header"}
-    = render partial: "shared/mobile_page_header", locals: {page_name: "Enter Transaction"}
+- if use_mobile_browsing?
+  %div{"data-role" => "page", "id" => "entry"}
+    %div{"data-role" => "header"}
+      = render partial: "shared/mobile_page_header", locals: {page_name: "Enter Transaction"}
 
-  %div{"data-role" => "content"}
-    = render 'transactions/form'
+    %div{"data-role" => "content"}
+      = render 'transactions/form'
 
-  %div{"data-role" => "footer"}
-    %ul.menu
-      %li
-        = link_to 'Cancel', "#show", {"data-direction" => "reverse"}
+    %div{"data-role" => "footer"}
+      %ul.menu
+        %li
+          = link_to 'Cancel', "#show", {"data-direction" => "reverse"}
 
 
 
