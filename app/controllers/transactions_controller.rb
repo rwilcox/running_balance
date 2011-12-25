@@ -99,7 +99,7 @@ protected
   def current_transaction
     if @transaction.nil?
       if params[:id]
-        @transaction = current_account.transactions.find( pparams[:id] )
+        @transaction = current_account.transactions.find( params[:id] )
       else
         @transaction = current_account.transactions.new
       end
