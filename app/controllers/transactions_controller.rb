@@ -5,7 +5,10 @@ class TransactionsController < ApplicationController
   # GET /transactions
   # GET /transactions.json
   def index
-    @transactions = current_account.transactions.sort_by_date
+
+    @filter_to_previous_month = session[:filter_transactions]
+
+    @transactions = current_account.transactions.limit_for_month(@filter_to_previous_month).sort_by_date
     @filename = "transactions.csv"
 
     respond_to do |format|

@@ -10,4 +10,9 @@ class SettingsController < ApplicationController
 
   def my;
   end
+
+  def filter_transactions_to_previous_month
+    session[:filter_transactions] = (params[:filter_transactions] == "true")
+    redirect_to dashboard_path
+  end
 end

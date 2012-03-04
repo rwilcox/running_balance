@@ -6,6 +6,18 @@
 </form>
 
 <%= button_to 'New Transaction', new_account_transaction_path(current_account), class: "btn large", method: :get %>
+
+<% if @filter_to_previous_month -%>
+  <p class="warning">Transactions are limited to just the transactions in the last month.
+<% else %>
+  <p class="tip">All transactions are being shown.
+<% end %>
+
+<%= link_to "Toogle Transaction Limiting",
+  	filter_transactions_to_previous_month_settings_path(
+  	filter_transactions: !@filter_to_previous_month) -%>
+</p>
+
 <table>
   <thead><tr>
     <th>Description</th>

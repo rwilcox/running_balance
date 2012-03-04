@@ -21,7 +21,17 @@ class Transaction < ActiveRecord::Base
   end
 
 
+  def self.limit_for_month(filter_or_not)
+    if filter_or_not
+      where( ["active_on >= ?", DateUtils.start_of_previous_month])
+    else
+      where(["1 = 1"])
+    end
+  end
+
+
   def default_active_on
     self.active_on = Date.today unless active_on
   end
+
 end
