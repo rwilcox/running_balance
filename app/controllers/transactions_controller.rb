@@ -30,6 +30,7 @@ class TransactionsController < ApplicationController
   # GET /transactions/new
   # GET /transactions/new.json
   def new
+    session[:return_to] = params[:return_to] || account_transactions_path(current_account)
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: current_transaction }

@@ -5,13 +5,13 @@
       <div class="account" id="<%= dom_id curr_account -%>">
         <details>
           <summary><h3><%= link_to curr_account.name, curr_account -%></h3>
-            <p><%= link_to "New Transaction for account", new_account_transaction_path(curr_account) -%></p>
+            <p><%= link_to "New Transaction for account", new_account_transaction_path(curr_account, return_to: dashboard_path) -%></p>
             <p class="additional_info">
               <span class="account_current_balance">Current Balance of Account: <%= number_to_currency(curr_account.current_balance_active_only) -%></span>
               <span class="account_pending_balance">(with pending: <%= number_to_currency(curr_account.current_balance) -%>)</span>
             </p>
           </summary>
-        
+
         <%= recent_transactions_widget_for(curr_account) -%>
         </details>
       </div>
