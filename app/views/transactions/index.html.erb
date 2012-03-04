@@ -5,6 +5,7 @@
     <input type="search" id="search" results=3>
 </form>
 
+<%= button_to 'New Transaction', new_account_transaction_path(current_account), class: "btn large", method: :get %>
 <table>
   <thead><tr>
     <th>Description</th>
